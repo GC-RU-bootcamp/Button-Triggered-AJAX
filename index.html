@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy Search - Gary Cender</title>
+  <link rel="icon" href="./assets/images/smiley.png" type="image/png" sizes="16x16">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <!-- Control the column width, and how they should appear on different devices -->
+    <!-- search row -->
+    <div class="row">
+      <div class="col-sm-12" style="background-color:yellow;">
+        <form>
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="search-input" placeholder="Search Giphy for...">
+
+            <button id="add-button" type="button" data-ignore="true" class="btn btn-success">Add</button>
+            <button id="clear-button" type="button" data-ignore="true" class="btn btn-danger">Clear all</button>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <!-- end of search row -->
+    <!-- Buttons go here -->
+    <div class="row">
+      <div id="button-area" class="col-sm-12" style="background-color:rgb(255, 0, 221);">
+
+        buttons go here
+      </div>
+      <!-- col -->
+    </div>
+    <!-- End buttons row -->
+
+
+    <div class="row" id="gifs-appear-here">
+      Images:
+    </div>
+
+
+
+    <!-- <div id="gifs-appear-here">
+      </div> -->
+
+    <!-- <div class="col-sm-6" style="background-color:yellow;">50%</div> -->
+    <!-- <div class="col-sm-6" style="background-color:orange;">50%</div> -->
+  </div>
+  <!-- end container -->
+  <!-- <br> -->
+
+  <!-- <div class="row"> gifs-appear-here
+    <div id="col-1" class="col-sm-3" style="background-color:yellow;">33.33%</div>
+    <div id="col-2" class="col-sm-3" style="background-color:orange;">33.33%</div>
+    <div id="col-3" class="col-sm-3" style="background-color:yellow;">33.33%</div>
+    <div id="col-4" class="col-sm-3" style="background-color:orange;">33.33%</div>
+  </div>
+  <br> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="./assets/scripts/script.js"></script>
+</body>
+
+</html>
