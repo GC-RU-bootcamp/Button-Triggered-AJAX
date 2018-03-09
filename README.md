@@ -16,4 +16,4 @@ Each button click will bring in 10 images.
 
    Click different button will clear all images from previous search and then load 10 new images. So that only the images relevent to that search are shown.  
 
-   (Work in progress - Hover over an image shows popover title and rating).
+   implemented - Hover over an image shows popover "Title" and "Rating".

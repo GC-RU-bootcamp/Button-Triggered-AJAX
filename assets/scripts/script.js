@@ -72,15 +72,17 @@ function createGifDiv(result) {
   gifImage.attr("data-still", result.images.fixed_height_still.url);
   gifImage.attr("data-toggle","hover");
   gifImage.attr("title", title);
-  gifImage.attr("data-content", rating);
+  gifImage.attr("data-content", "Rating: " +rating);
 
   // Giving the image tag an src attribute of a proprty pulled off the
   // result item
   gifImage.attr("src", result.images.fixed_height_still.url);
 
   // Appending the paragraph and gifImage we created to the "gifDiv" div we created
-   gifDiv.append(t);
-   gifDiv.append(r);
+  // gifDiv.append(t);
+  // gifDiv.append(r);
+   gifDiv.append($("<hr>"));
+  
   gifDiv.append(gifImage);
   return gifDiv;
 }
@@ -110,9 +112,14 @@ $("#clear-button").on("click", function(e) {
   clearAll("button-area", topics);
 });
 
-$(document).on("hover", ".gif", function(e) {
+$(document).on("mouseenter", ".gif", function(e) {
   // e.preventDefault();
-  $($this).popover('show');
+  $(this).popover('show');
+});
+
+$(document).on("mouseleave", ".gif", function(e) {
+  // e.preventDefault();
+  $(this).popover('hide');
 });
 
 // $(".gif").on("click", function() {
