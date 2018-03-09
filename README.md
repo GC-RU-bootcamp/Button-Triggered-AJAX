@@ -8,6 +8,7 @@ Ability to remove all buttons
 Buttons Persisted on page reload with Local Storage 
 
 Ability to dynamically add GIF on button press
+
 Ability to toggle each GIF between "Still" & "Animated" on mouse click on image. 
 
 Each button click will bring in 10 images.
