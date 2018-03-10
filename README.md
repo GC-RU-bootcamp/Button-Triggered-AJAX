@@ -3,7 +3,11 @@ Button Triggered AJAX to make calls to Giphy API and displays a set of GIFs
 
 Features
 Ability to add seach buttons
-Ability to remove all buttons
+   Will not add empty or duplicate buttons
+
+Ability to remove all buttons.
+
+   Drag & drop button to "Remove all" button to remove a single button. 
 
 Buttons Persisted on page reload with Local Storage 
 
@@ -17,4 +21,4 @@ Each button click will bring in 10 images.
 
    Click different button will clear all images from previous search and then load 10 new images. So that only the images relevent to that search are shown.  
 
-   implemented - Hover over an image shows popover "Title" and "Rating".
+   Hover over an image shows popover "Title" and "Rating".

@@ -17,12 +17,12 @@
     <div class="row">
       <div class="col-sm-12" style="background-color:rgb(0, 191, 255);">
         <form>
-          <div class="form-group">
+          <div class="XXform-group">
 
-            <input type="text" class="form-control" id="search-input" placeholder="Search Giphy for...">
+            <input type="text" class="form-control" id="search-input"  placeholder="Search Giphy for..." > <!--style="width: 50%"-->
 
             <button id="add-button" type="button" data-ignore="true" class="btn btn-success">Add button</button>
-            <button id="clear-button" type="button" data-ignore="true" class="btn btn-danger">Remove all</button>
+            <button id="clear-button" type="button" data-ignore="true" class="btn btn-danger" ondrop="drop(event)" ondragover="allowDrop(event)">Remove all</button>
 
           </div>
 

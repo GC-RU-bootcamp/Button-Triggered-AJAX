@@ -29,6 +29,9 @@ function renderButtons(buttonArea, topics) {
       a.attr("data-search", topics[i]);
       // Providing the button's text with a value of the topic at index i
       a.text(topics[i]);
+      a.attr("draggable", "true");
+      a.attr( "ondragstart", "drag(event)");
+      a.attr( "id", "btn"+i);
       // Adding the button to the HTML
       $("#" + buttonArea).append(a);
     }
@@ -133,11 +136,11 @@ $(document).on("click", ".gif", function(e) {
   if (state === "still") {
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
-    console.log(state + "->animate");
+    // console.log(state + "->animate");
   } else {
     $(this).attr("src", $(this).attr("data-still"));
     $(this).attr("data-state", "still");
-    console.log(state + "->still");
+    // console.log(state + "->still");
   }
 });
 
@@ -189,3 +192,24 @@ $(document).on("click", "button.search", function(e) {
       }
     });
 });
+
+function allowDrop(ev) {
+  ev.preventDefault();
+};
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+};
+
+function drop(ev) {
+  ev.preventDefault();
+  var id = ev.dataTransfer.getData("text");
+  //ev.target.appendChild(document.getElementById(data));
+  var text = $("#"+id).attr("data-search");
+  var i = topics.indexOf(text);
+  if (i > -1) {
+    topics.splice(i,1);
+    localStorage.setItem("buttonlist", JSON.stringify(topics));
+    $("#"+ id).remove();
+  }
+};
