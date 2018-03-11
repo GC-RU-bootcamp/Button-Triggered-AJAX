@@ -7,9 +7,10 @@ Ability to add seach buttons
 
 Ability to remove all buttons.
 
-   Drag & drop button to "Remove all" button to remove a single button. 
+Ability to remove a single button via:
+   Drag & drop button to "Remove all" button OR "Input text" to remove a single button. 
 
-Buttons Persisted on page reload with Local Storage 
+Buttons created are Persisted on page reload with Local Storage 
 
 Ability to dynamically add GIF on button press
 

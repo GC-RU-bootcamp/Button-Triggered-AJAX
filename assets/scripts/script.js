@@ -11,7 +11,6 @@ if (!Array.isArray(topics)) {
   topics = [];
 }
 
-
 function renderButtons(buttonArea, topics) {
   // Deleting the movie buttons prior to adding new movie buttons
   // (this is necessary otherwise we will have repeat buttons)
@@ -30,8 +29,8 @@ function renderButtons(buttonArea, topics) {
       // Providing the button's text with a value of the topic at index i
       a.text(topics[i]);
       a.attr("draggable", "true");
-      a.attr( "ondragstart", "drag(event)");
-      a.attr( "id", "btn"+i);
+      a.attr("ondragstart", "drag(event)");
+      a.attr("id", "btn" + i);
       // Adding the button to the HTML
       $("#" + buttonArea).append(a);
     }
@@ -70,22 +69,33 @@ function createGifDiv(result) {
   // Creating an image tag
   var gifImage = $("<img style='width: 100%'>");
   gifImage.addClass("gif");
-  gifImage.attr("data-state", "still");
+  // var animateVal = $("#animate-check").val();
+  var checked = $("#animate-check").is(":checked");
+  // if ($("#check_id").is(":checked")) {
+  //   console.log(checked);
+  // }
+  if (checked === false) {
+    // Giving the image tag an src attribute of a proprty pulled off the
+    // result item
+    gifImage.attr("data-state", "still");
+    gifImage.attr("src", result.images.fixed_height_still.url);
+  } else {
+    gifImage.attr("data-state", "animate");
+    gifImage.attr("src", result.images.fixed_height.url);
+  }
+
+  // gifImage.attr("data-state", "still");
   gifImage.attr("data-animate", result.images.fixed_height.url);
   gifImage.attr("data-still", result.images.fixed_height_still.url);
-  gifImage.attr("data-toggle","hover");
+  gifImage.attr("data-toggle", "hover");
   gifImage.attr("title", title);
-  gifImage.attr("data-content", "Rating: " +rating);
-
-  // Giving the image tag an src attribute of a proprty pulled off the
-  // result item
-  gifImage.attr("src", result.images.fixed_height_still.url);
+  gifImage.attr("data-content", "Rating: " + rating);
 
   // Appending the paragraph and gifImage we created to the "gifDiv" div we created
   // gifDiv.append(t);
   // gifDiv.append(r);
-   gifDiv.append($("<hr>"));
-  
+  gifDiv.append($("<hr>"));
+
   gifDiv.append(gifImage);
   return gifDiv;
 }
@@ -117,12 +127,12 @@ $("#clear-button").on("click", function(e) {
 
 $(document).on("mouseenter", ".gif", function(e) {
   // e.preventDefault();
-  $(this).popover('show');
+  $(this).popover("show");
 });
 
 $(document).on("mouseleave", ".gif", function(e) {
   // e.preventDefault();
-  $(this).popover('hide');
+  $(this).popover("hide");
 });
 
 // $(".gif").on("click", function() {
@@ -166,7 +176,8 @@ $(document).on("click", "button.search", function(e) {
     // "&api_key=dc6zaTOxFJmzC&limit=10";
     "&api_key=" +
     api_key +
-    "&limit=10&offset="+pagination;
+    "&limit=10&offset=" +
+    pagination;
 
   // Performing our AJAX GET request
   $.ajax({
@@ -195,21 +206,37 @@ $(document).on("click", "button.search", function(e) {
 
 function allowDrop(ev) {
   ev.preventDefault();
-};
+}
 
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
-};
+}
 
 function drop(ev) {
   ev.preventDefault();
   var id = ev.dataTransfer.getData("text");
   //ev.target.appendChild(document.getElementById(data));
-  var text = $("#"+id).attr("data-search");
+  var text = $("#" + id).attr("data-search");
   var i = topics.indexOf(text);
   if (i > -1) {
-    topics.splice(i,1);
+    topics.splice(i, 1);
     localStorage.setItem("buttonlist", JSON.stringify(topics));
-    $("#"+ id).remove();
+    $("#" + id).remove();
   }
-};
+}
+
+$("#animate-check").change("click", function() {
+  var checked = $(this).is(":checked");
+  console.log(checked);
+  // var checked = $("#check_id").is(":checked");
+  // if ($("#check_id").is(":checked")) {
+  //   console.log(checked);
+  // }
+  if (checked) {
+    console.log('checked');
+    // $("#animate-check").prop("checked", true);
+  } else {
+    console.log('unchecked');
+    // $("#animate-check").prop("checked", false);
+  }
+});
